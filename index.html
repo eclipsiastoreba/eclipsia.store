@@ -168,13 +168,11 @@
   let products = JSON.parse(localStorage.getItem('eclipsia_products') || '[]');
   let cart = JSON.parse(localStorage.getItem('eclipsia_cart') || '[]');
   let currentFilter = 'Todas', currentSort = 'newest';
+
   if (products.length === 0) {
-    products = [
-      { id: 1, name: 'Blazer Oversize Camel', category: 'Blazers', price: 18500, size: 'M', condition: 'Como nuevo', description: 'Blazer oversize en tono camel, perfecto para cualquier look.', image: 'assets/hero.png', badge: 'new', date: Date.now() },
-      { id: 2, name: 'Pantalón Wide Leg Crema', category: 'Pantalones', price: 12900, size: 'S', condition: 'Impecable', description: 'Pantalón de pierna ancha en color crema.', image: 'assets/hero.png', badge: '', date: Date.now()-1000 },
-      { id: 3, name: 'Top Crop Blanco', category: 'Tops', price: 7500, size: 'XS', condition: 'Nuevo con etiqueta', description: 'Top cropped en algodón blanco.', image: 'assets/community.png', badge: 'new', date: Date.now()-2000 },
-    ];
+    products = [];
   }
+
   function getFiltered() {
     let list = currentFilter === 'Todas' ? [...products] : products.filter(p => p.category === currentFilter);
     if (currentSort === 'price-asc') list.sort((a,b) => a.price - b.price);
@@ -186,7 +184,7 @@
     const grid = document.getElementById('productsGrid');
     const list = getFiltered();
     document.getElementById('resultsCount').textContent = `${list.length} prenda${list.length !== 1 ? 's' : ''}`;
-    if (list.length === 0) { grid.innerHTML = `<div class="empty-state"><h3>Sin prendas en esta categoría</h3><p>Volvé pronto.</p></div>`; return; }
+    if (list.length === 0) { grid.innerHTML = `<div class="empty-state"><h3>Sin prendas en esta categoría</h3><p>Volvé pronto, la colección se renueva seguido.</p></div>`; return; }
     grid.innerHTML = list.map(p => `
       <div class="product-card" onclick="openModal(${p.id})">
         <div class="product-img-wrap">
