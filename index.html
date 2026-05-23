@@ -8,27 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --jacarta: #3F2A52;
-      --amethyst: #AB92BF;
-      --wisteria: #BEAEDB;
-      --linen: #FDF1E2;
-      --oat: #E6DAC8;
-      --sandstone: #CBB9A4;
-      --porcelain: #F4F1EA;
-      --dark: #2a1a38;
-    }
+    :root { --jacarta: #3F2A52; --amethyst: #AB92BF; --wisteria: #BEAEDB; --linen: #FDF1E2; --oat: #E6DAC8; --sandstone: #CBB9A4; --porcelain: #F4F1EA; --dark: #2a1a38; }
     html { scroll-behavior: smooth; }
     body { background: var(--linen); color: var(--jacarta); font-family: 'Montserrat', sans-serif; }
-    nav {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(253,241,226,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(63,42,82,0.1);
-      padding: 0 2.5rem;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
+    nav { position: sticky; top: 0; z-index: 200; background: rgba(253,241,226,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(63,42,82,0.1); padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: 0.15em; color: var(--jacarta); text-decoration: none; }
     .nav-center { display: flex; gap: 2rem; }
     .nav-center a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--jacarta); text-decoration: none; opacity: 0.6; transition: opacity 0.3s; }
@@ -122,13 +105,8 @@
 <body>
 <nav>
   <a href="index.html" class="nav-logo">ECLIPSIA</a>
-  <div class="nav-center">
-    <a href="index.html">Tienda</a>
-    <a href="#" onclick="openCart()">Carrito</a>
-  </div>
-  <div class="nav-right">
-    <button class="cart-btn" onclick="openCart()">🛍 Carrito <span class="cart-count" id="cartCount">0</span></button>
-  </div>
+  <div class="nav-center"><a href="index.html">Tienda</a><a href="#" onclick="openCart()">Carrito</a></div>
+  <div class="nav-right"><button class="cart-btn" onclick="openCart()">🛍 Carrito <span class="cart-count" id="cartCount">0</span></button></div>
 </nav>
 <div class="hero-mini">
   <div class="hero-mini-content">
@@ -152,11 +130,11 @@
   </select>
 </div>
 <div class="shop-layout">
-  <div class="results-bar"><span class="results-count" id="resultsCount">Cargando…</span></div>
+  <div class="results-bar"><span class="results-count" id="resultsCount">Cargando productos…</span></div>
   <div class="products-grid" id="productsGrid"></div>
 </div>
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
-  <div class="modal" id="modal">
+  <div class="modal">
     <img class="modal-img" id="modalImg" src="" alt="" />
     <div class="modal-body">
       <button class="modal-close" onclick="closeModal()">✕</button>
@@ -193,8 +171,7 @@
   const WA_NUMBER = '5491123161045';
   let products = JSON.parse(localStorage.getItem('eclipsia_products') || '[]');
   let cart = JSON.parse(localStorage.getItem('eclipsia_cart') || '[]');
-  let currentFilter = 'Todas';
-  let currentSort = 'newest';
+  let currentFilter = 'Todas', currentSort = 'newest';
   if (products.length === 0) {
     products = [
       { id: 1, name: 'Blazer Oversize Camel', category: 'Blazers', price: 18500, size: 'M', condition: 'Como nuevo', description: 'Blazer oversize en tono camel, perfecto para cualquier look.', image: 'assets/hero.png', badge: 'new', date: Date.now() },
@@ -235,9 +212,7 @@
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentFilter = btn.dataset.cat;
-      renderProducts();
+      btn.classList.add('active'); currentFilter = btn.dataset.cat; renderProducts();
     });
   });
   document.getElementById('sortSelect').addEventListener('change', e => { currentSort = e.target.value; renderProducts(); });
@@ -251,20 +226,21 @@
     document.getElementById('modalDesc').textContent = p.description;
     document.getElementById('modalSize').textContent = p.size;
     document.getElementById('modalCond').textContent = p.condition;
-    const msg = encodeURIComponent(`Hola! Me interesa esta prenda de Eclipsia:\n\n👗 *${p.name}*\nTalle: ${p.size}\nPrecio: $${p.price.toLocaleString('es-AR')}\n\n¿Está disponible?`);
+    const productUrl = `${window.location.origin}${window.location.pathname}?producto=${p.id}`;
+    history.replaceState(null, '', `?producto=${p.id}`);
+    const msg = encodeURIComponent(`Hola! Me interesa esta prenda de Eclipsia:\n\n👗 *${p.name}*\nTalle: ${p.size}\nPrecio: $${p.price.toLocaleString('es-AR')}\n\n🔗 Ver prenda: ${productUrl}\n\n¿Está disponible?`);
     document.getElementById('modalWaBtn').href = `https://wa.me/${WA_NUMBER}?text=${msg}`;
     document.getElementById('modalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-  function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+  function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; history.replaceState(null, '', window.location.pathname); }
   function closeModalOnBg(e) { if (e.target === document.getElementById('modalOverlay')) closeModal(); }
   function addToCart(id) {
     const p = products.find(x => x.id === id);
     if (!p) return;
     if (!cart.find(x => x.id === id)) cart.push({ id: p.id, name: p.name, price: p.price, size: p.size, category: p.category, image: p.image });
     localStorage.setItem('eclipsia_cart', JSON.stringify(cart));
-    updateCartCount();
-    showToast(`${p.name} agregado ✓`);
+    updateCartCount(); showToast(`${p.name} agregado ✓`);
   }
   function removeFromCart(id) { cart = cart.filter(x => x.id !== id); localStorage.setItem('eclipsia_cart', JSON.stringify(cart)); updateCartCount(); renderCart(); }
   function updateCartCount() { document.getElementById('cartCount').textContent = cart.length; }
@@ -297,6 +273,9 @@
   function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); }
   renderProducts();
   updateCartCount();
+  const urlParams = new URLSearchParams(window.location.search);
+  const productoId = urlParams.get('producto');
+  if (productoId) setTimeout(() => openModal(parseInt(productoId)), 300);
   window.addEventListener('storage', e => { if (e.key === 'eclipsia_products') { products = JSON.parse(e.newValue || '[]'); renderProducts(); } });
 </script>
 </body>
