@@ -20,8 +20,6 @@
     }
     html { scroll-behavior: smooth; }
     body { background: var(--linen); color: var(--jacarta); font-family: 'Montserrat', sans-serif; }
-
-    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 200;
       background: rgba(253,241,226,0.95);
@@ -31,406 +29,97 @@
       display: flex; align-items: center; justify-content: space-between;
       height: 64px;
     }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem; font-weight: 600;
-      letter-spacing: 0.15em; color: var(--jacarta);
-      text-decoration: none;
-    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: 0.15em; color: var(--jacarta); text-decoration: none; }
     .nav-center { display: flex; gap: 2rem; }
-    .nav-center a {
-      font-size: 0.68rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--jacarta);
-      text-decoration: none; opacity: 0.6;
-      transition: opacity 0.3s;
-    }
+    .nav-center a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--jacarta); text-decoration: none; opacity: 0.6; transition: opacity 0.3s; }
     .nav-center a:hover { opacity: 1; }
     .nav-right { display: flex; align-items: center; gap: 1.2rem; }
-    .cart-btn {
-      background: none; border: none; cursor: pointer;
-      font-size: 0.68rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--jacarta);
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .cart-count {
-      background: var(--jacarta); color: var(--linen);
-      border-radius: 50%; width: 20px; height: 20px;
-      font-size: 0.6rem; display: flex; align-items: center; justify-content: center;
-    }
-
-    /* HERO MINI */
-    .hero-mini {
-      background: var(--jacarta);
-      padding: 5rem 2.5rem 4rem;
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .hero-mini::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url('assets/hero.png') center/cover no-repeat;
-      opacity: 0.18;
-    }
+    .cart-btn { background: none; border: none; cursor: pointer; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--jacarta); display: flex; align-items: center; gap: 0.5rem; }
+    .cart-count { background: var(--jacarta); color: var(--linen); border-radius: 50%; width: 20px; height: 20px; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; }
+    .hero-mini { background: var(--jacarta); padding: 5rem 2.5rem 4rem; text-align: center; position: relative; overflow: hidden; }
+    .hero-mini::before { content: ''; position: absolute; inset: 0; background: url('assets/hero.png') center/cover no-repeat; opacity: 0.18; }
     .hero-mini-content { position: relative; z-index: 1; }
-    .hero-mini h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 300; color: var(--linen);
-      line-height: 1.05; margin-bottom: 0.8rem;
-    }
+    .hero-mini h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; color: var(--linen); line-height: 1.05; margin-bottom: 0.8rem; }
     .hero-mini h1 em { font-style: italic; color: var(--oat); }
-    .hero-mini p {
-      font-size: 0.78rem; letter-spacing: 0.1em;
-      color: rgba(253,241,226,0.6);
-    }
-
-    /* FILTERS */
-    .filters-bar {
-      background: var(--porcelain);
-      border-bottom: 1px solid rgba(63,42,82,0.08);
-      padding: 1rem 2.5rem;
-      display: flex; align-items: center;
-      gap: 0.6rem; flex-wrap: wrap;
-      position: sticky; top: 64px; z-index: 100;
-    }
-    .filter-label {
-      font-size: 0.62rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: rgba(63,42,82,0.5);
-      margin-right: 0.4rem;
-    }
-    .filter-btn {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.15em;
-      text-transform: uppercase;
-      background: none;
-      border: 1px solid rgba(63,42,82,0.2);
-      color: rgba(63,42,82,0.6);
-      padding: 0.45rem 1rem;
-      cursor: pointer;
-      border-radius: 0;
-      transition: all 0.25s;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--jacarta);
-      border-color: var(--jacarta);
-      color: var(--linen);
-    }
-    .sort-select {
-      margin-left: auto;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.1em;
-      background: none; border: 1px solid rgba(63,42,82,0.2);
-      color: var(--jacarta); padding: 0.45rem 0.8rem;
-      cursor: pointer; outline: none;
-    }
-
-    /* MAIN LAYOUT */
-    .shop-layout {
-      max-width: 1400px; margin: 0 auto;
-      padding: 3rem 2.5rem;
-    }
-    .results-bar {
-      display: flex; justify-content: space-between;
-      align-items: center; margin-bottom: 2rem;
-    }
-    .results-count {
-      font-size: 0.72rem; letter-spacing: 0.1em;
-      color: rgba(63,42,82,0.5);
-    }
-
-    /* PRODUCT GRID */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 2rem;
-    }
-
-    /* PRODUCT CARD */
-    .product-card {
-      background: white;
-      cursor: pointer;
-      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94),
-                  box-shadow 0.35s;
-      position: relative;
-      overflow: hidden;
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(63,42,82,0.12);
-    }
-    .product-img-wrap {
-      position: relative;
-      aspect-ratio: 3/4;
-      overflow: hidden;
-      background: var(--porcelain);
-    }
-    .product-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
+    .hero-mini p { font-size: 0.78rem; letter-spacing: 0.1em; color: rgba(253,241,226,0.6); }
+    .filters-bar { background: var(--porcelain); border-bottom: 1px solid rgba(63,42,82,0.08); padding: 1rem 2.5rem; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; position: sticky; top: 64px; z-index: 100; }
+    .filter-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(63,42,82,0.5); margin-right: 0.4rem; }
+    .filter-btn { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; background: none; border: 1px solid rgba(63,42,82,0.2); color: rgba(63,42,82,0.6); padding: 0.45rem 1rem; cursor: pointer; border-radius: 0; transition: all 0.25s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--jacarta); border-color: var(--jacarta); color: var(--linen); }
+    .sort-select { margin-left: auto; font-family: 'Montserrat', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; background: none; border: 1px solid rgba(63,42,82,0.2); color: var(--jacarta); padding: 0.45rem 0.8rem; cursor: pointer; outline: none; }
+    .shop-layout { max-width: 1400px; margin: 0 auto; padding: 3rem 2.5rem; }
+    .results-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .results-count { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(63,42,82,0.5); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 2rem; }
+    .product-card { background: white; cursor: pointer; transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s; position: relative; overflow: hidden; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(63,42,82,0.12); }
+    .product-img-wrap { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--porcelain); }
+    .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
     .product-card:hover .product-img-wrap img { transform: scale(1.07); }
-    .product-badge {
-      position: absolute; top: 0.8rem; left: 0.8rem;
-      background: var(--jacarta); color: var(--linen);
-      font-size: 0.55rem; letter-spacing: 0.2em;
-      text-transform: uppercase; padding: 0.3rem 0.65rem;
-    }
+    .product-badge { position: absolute; top: 0.8rem; left: 0.8rem; background: var(--jacarta); color: var(--linen); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.3rem 0.65rem; }
     .product-badge.new { background: var(--amethyst); }
     .product-badge.sold { background: var(--sandstone); }
-    .product-quick {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: var(--jacarta); color: var(--linen);
-      font-size: 0.65rem; letter-spacing: 0.2em;
-      text-transform: uppercase; padding: 0.9rem;
-      text-align: center;
-      transform: translateY(100%);
-      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
-      border: none; cursor: pointer; font-family: 'Montserrat', sans-serif;
-      width: 100%;
-    }
+    .product-quick { position: absolute; bottom: 0; left: 0; right: 0; background: var(--jacarta); color: var(--linen); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.9rem; text-align: center; transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94); border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; width: 100%; }
     .product-card:hover .product-quick { transform: translateY(0); }
     .product-info { padding: 1.1rem 1rem 1.2rem; }
-    .product-cat {
-      font-size: 0.6rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--amethyst);
-      margin-bottom: 0.35rem;
-    }
-    .product-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; font-weight: 400;
-      color: var(--jacarta); margin-bottom: 0.5rem;
-      line-height: 1.25;
-    }
-    .product-meta {
-      display: flex; justify-content: space-between;
-      align-items: center;
-    }
-    .product-price {
-      font-size: 0.95rem; font-weight: 600;
-      color: var(--jacarta);
-    }
-    .product-size {
-      font-size: 0.62rem; letter-spacing: 0.15em;
-      color: rgba(63,42,82,0.45);
-      background: var(--porcelain);
-      padding: 0.2rem 0.5rem;
-    }
-
-    /* EMPTY STATE */
-    .empty-state {
-      text-align: center; padding: 5rem 2rem;
-      grid-column: 1/-1;
-    }
-    .empty-state h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 300;
-      color: var(--jacarta); margin-bottom: 0.8rem;
-    }
+    .product-cat { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amethyst); margin-bottom: 0.35rem; }
+    .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--jacarta); margin-bottom: 0.5rem; line-height: 1.25; }
+    .product-meta { display: flex; justify-content: space-between; align-items: center; }
+    .product-price { font-size: 0.95rem; font-weight: 600; color: var(--jacarta); }
+    .product-size { font-size: 0.62rem; letter-spacing: 0.15em; color: rgba(63,42,82,0.45); background: var(--porcelain); padding: 0.2rem 0.5rem; }
+    .empty-state { text-align: center; padding: 5rem 2rem; grid-column: 1/-1; }
+    .empty-state h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--jacarta); margin-bottom: 0.8rem; }
     .empty-state p { font-size: 0.82rem; color: rgba(63,42,82,0.5); }
-
-    /* MODAL */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 500;
-      background: rgba(42,26,56,0.6);
-      backdrop-filter: blur(6px);
-      display: none; align-items: center; justify-content: center;
-      padding: 1rem;
-    }
+    .modal-overlay { position: fixed; inset: 0; z-index: 500; background: rgba(42,26,56,0.6); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; padding: 1rem; }
     .modal-overlay.open { display: flex; }
-    .modal {
-      background: var(--linen); max-width: 860px; width: 100%;
-      display: grid; grid-template-columns: 1fr 1fr;
-      max-height: 90vh; overflow: hidden;
-      animation: modalIn 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-    @keyframes modalIn {
-      from { opacity: 0; transform: scale(0.95) translateY(20px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .modal-img {
-      aspect-ratio: 3/4; object-fit: cover; width: 100%; height: 100%;
-    }
-    .modal-body {
-      padding: 2.5rem 2rem;
-      display: flex; flex-direction: column;
-      overflow-y: auto;
-    }
-    .modal-close {
-      align-self: flex-end; background: none; border: none;
-      font-size: 1.4rem; cursor: pointer; color: rgba(63,42,82,0.4);
-      line-height: 1; margin-bottom: 1.5rem;
-      transition: color 0.2s;
-    }
+    .modal { background: var(--linen); max-width: 860px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; max-height: 90vh; overflow: hidden; animation: modalIn 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    .modal-img { aspect-ratio: 3/4; object-fit: cover; width: 100%; height: 100%; }
+    .modal-body { padding: 2.5rem 2rem; display: flex; flex-direction: column; overflow-y: auto; }
+    .modal-close { align-self: flex-end; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: rgba(63,42,82,0.4); line-height: 1; margin-bottom: 1.5rem; transition: color 0.2s; }
     .modal-close:hover { color: var(--jacarta); }
-    .modal-cat {
-      font-size: 0.62rem; letter-spacing: 0.25em;
-      text-transform: uppercase; color: var(--amethyst);
-      margin-bottom: 0.6rem;
-    }
-    .modal-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 300;
-      line-height: 1.1; margin-bottom: 1rem;
-    }
-    .modal-price {
-      font-size: 1.5rem; font-weight: 600;
-      color: var(--jacarta); margin-bottom: 1.5rem;
-    }
-    .modal-desc {
-      font-size: 0.82rem; line-height: 1.8;
-      color: rgba(63,42,82,0.7);
-      margin-bottom: 1.5rem; flex: 1;
-    }
-    .modal-size-label {
-      font-size: 0.65rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: rgba(63,42,82,0.5);
-      margin-bottom: 0.6rem;
-    }
-    .modal-size-val {
-      display: inline-block;
-      border: 1px solid rgba(63,42,82,0.25);
-      padding: 0.4rem 1rem;
-      font-size: 0.78rem; margin-bottom: 1.5rem;
-    }
-    .modal-cond-label {
-      font-size: 0.65rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: rgba(63,42,82,0.5);
-      margin-bottom: 0.5rem;
-    }
-    .modal-cond {
-      font-size: 0.78rem; color: rgba(63,42,82,0.7);
-      margin-bottom: 2rem;
-    }
-    .modal-wa-btn {
-      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-      background: #25D366; color: white;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem; letter-spacing: 0.2em;
-      text-transform: uppercase; border: none;
-      padding: 1.1rem 1.5rem; cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s, transform 0.2s;
-    }
+    .modal-cat { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amethyst); margin-bottom: 0.6rem; }
+    .modal-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; line-height: 1.1; margin-bottom: 1rem; }
+    .modal-price { font-size: 1.5rem; font-weight: 600; color: var(--jacarta); margin-bottom: 1.5rem; }
+    .modal-desc { font-size: 0.82rem; line-height: 1.8; color: rgba(63,42,82,0.7); margin-bottom: 1.5rem; flex: 1; }
+    .modal-size-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(63,42,82,0.5); margin-bottom: 0.6rem; }
+    .modal-size-val { display: inline-block; border: 1px solid rgba(63,42,82,0.25); padding: 0.4rem 1rem; font-size: 0.78rem; margin-bottom: 1.5rem; }
+    .modal-cond-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(63,42,82,0.5); margin-bottom: 0.5rem; }
+    .modal-cond { font-size: 0.78rem; color: rgba(63,42,82,0.7); margin-bottom: 2rem; }
+    .modal-wa-btn { display: flex; align-items: center; justify-content: center; gap: 0.6rem; background: #25D366; color: white; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; border: none; padding: 1.1rem 1.5rem; cursor: pointer; text-decoration: none; transition: background 0.3s, transform 0.2s; }
     .modal-wa-btn:hover { background: #1ebe5d; transform: translateY(-1px); }
-
-    /* CART PANEL */
-    .cart-panel {
-      position: fixed; top: 0; right: 0; bottom: 0;
-      width: min(420px, 100vw); z-index: 400;
-      background: var(--linen);
-      box-shadow: -10px 0 50px rgba(63,42,82,0.15);
-      display: flex; flex-direction: column;
-      transform: translateX(100%);
-      transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
+    .cart-panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100vw); z-index: 400; background: var(--linen); box-shadow: -10px 0 50px rgba(63,42,82,0.15); display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94); }
     .cart-panel.open { transform: translateX(0); }
-    .cart-header {
-      padding: 1.5rem 1.8rem;
-      border-bottom: 1px solid rgba(63,42,82,0.1);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .cart-header h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem; font-weight: 300;
-    }
+    .cart-header { padding: 1.5rem 1.8rem; border-bottom: 1px solid rgba(63,42,82,0.1); display: flex; justify-content: space-between; align-items: center; }
+    .cart-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; }
     .cart-close { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: rgba(63,42,82,0.5); }
     .cart-items { flex: 1; overflow-y: auto; padding: 1.5rem 1.8rem; }
-    .cart-item {
-      display: flex; gap: 1rem; margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(63,42,82,0.08);
-    }
-    .cart-item-img {
-      width: 72px; height: 90px;
-      object-fit: cover; flex-shrink: 0;
-      background: var(--porcelain);
-    }
+    .cart-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(63,42,82,0.08); }
+    .cart-item-img { width: 72px; height: 90px; object-fit: cover; flex-shrink: 0; background: var(--porcelain); }
     .cart-item-info { flex: 1; }
-    .cart-item-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; margin-bottom: 0.3rem;
-    }
+    .cart-item-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; margin-bottom: 0.3rem; }
     .cart-item-meta { font-size: 0.7rem; color: rgba(63,42,82,0.5); margin-bottom: 0.5rem; }
     .cart-item-price { font-size: 0.88rem; font-weight: 600; }
-    .cart-item-remove {
-      background: none; border: none;
-      font-size: 0.7rem; color: rgba(63,42,82,0.35);
-      cursor: pointer; text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .cart-footer {
-      padding: 1.5rem 1.8rem;
-      border-top: 1px solid rgba(63,42,82,0.1);
-    }
-    .cart-total {
-      display: flex; justify-content: space-between;
-      margin-bottom: 1.2rem;
-    }
+    .cart-item-remove { background: none; border: none; font-size: 0.7rem; color: rgba(63,42,82,0.35); cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; }
+    .cart-footer { padding: 1.5rem 1.8rem; border-top: 1px solid rgba(63,42,82,0.1); }
+    .cart-total { display: flex; justify-content: space-between; margin-bottom: 1.2rem; }
     .cart-total span { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
     .cart-total strong { font-size: 1.1rem; font-weight: 600; }
-    .cart-wa-btn {
-      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-      background: #25D366; color: white; width: 100%;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem; letter-spacing: 0.2em;
-      text-transform: uppercase; border: none;
-      padding: 1.1rem; cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
+    .cart-wa-btn { display: flex; align-items: center; justify-content: center; gap: 0.6rem; background: #25D366; color: white; width: 100%; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; border: none; padding: 1.1rem; cursor: pointer; text-decoration: none; transition: background 0.3s; }
     .cart-wa-btn:hover { background: #1ebe5d; }
-    .cart-empty {
-      text-align: center; padding: 3rem 1rem;
-      color: rgba(63,42,82,0.4); font-size: 0.82rem;
-    }
+    .cart-empty { text-align: center; padding: 3rem 1rem; color: rgba(63,42,82,0.4); font-size: 0.82rem; }
     .cart-empty p { margin-top: 0.5rem; }
-
-    /* TOAST */
-    .toast {
-      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(120px);
-      background: var(--jacarta); color: var(--linen);
-      padding: 0.85rem 2rem;
-      font-size: 0.72rem; letter-spacing: 0.15em;
-      text-transform: uppercase;
-      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
-      z-index: 600; white-space: nowrap;
-    }
+    .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(120px); background: var(--jacarta); color: var(--linen); padding: 0.85rem 2rem; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); z-index: 600; white-space: nowrap; }
     .toast.show { transform: translateX(-50%) translateY(0); }
-
-    /* FOOTER */
-    footer {
-      background: var(--jacarta); color: var(--linen);
-      text-align: center; padding: 3rem 2rem;
-      margin-top: 4rem;
-    }
-    footer .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem; font-weight: 300;
-      letter-spacing: 0.15em; margin-bottom: 0.8rem;
-    }
-    footer p {
-      font-size: 0.68rem; letter-spacing: 0.1em;
-      color: rgba(253,241,226,0.4);
-    }
-    footer a {
-      color: var(--wisteria); text-decoration: none;
-      margin: 0 0.8rem; font-size: 0.68rem;
-      letter-spacing: 0.15em; text-transform: uppercase;
-    }
+    footer { background: var(--jacarta); color: var(--linen); text-align: center; padding: 3rem 2rem; margin-top: 4rem; }
+    footer .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 0.8rem; }
+    footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(253,241,226,0.4); }
+    footer a { color: var(--wisteria); text-decoration: none; margin: 0 0.8rem; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; }
     .footer-links { margin: 1rem 0; }
-
-    @media (max-width: 680px) {
-      .modal { grid-template-columns: 1fr; }
-      .modal-img { max-height: 280px; }
-      .nav-center { display: none; }
-      .filters-bar { top: 64px; }
-    }
+    @media (max-width: 680px) { .modal { grid-template-columns: 1fr; } .modal-img { max-height: 280px; } .nav-center { display: none; } }
   </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">ECLIPSIA</a>
   <div class="nav-center">
@@ -438,21 +127,15 @@
     <a href="#" onclick="openCart()">Carrito</a>
   </div>
   <div class="nav-right">
-    <button class="cart-btn" onclick="openCart()">
-      🛍 Carrito <span class="cart-count" id="cartCount">0</span>
-    </button>
+    <button class="cart-btn" onclick="openCart()">🛍 Carrito <span class="cart-count" id="cartCount">0</span></button>
   </div>
 </nav>
-
-<!-- HERO MINI -->
 <div class="hero-mini">
   <div class="hero-mini-content">
     <h1>Nuestra <em>Colección</em></h1>
     <p>Piezas de marca · Condición impecable · Enviamos a todo el país</p>
   </div>
 </div>
-
-<!-- FILTERS -->
 <div class="filters-bar">
   <span class="filter-label">Categoría</span>
   <button class="filter-btn active" data-cat="Todas">Todas</button>
@@ -468,16 +151,10 @@
     <option value="price-desc">Precio: mayor a menor</option>
   </select>
 </div>
-
-<!-- SHOP LAYOUT -->
 <div class="shop-layout">
-  <div class="results-bar">
-    <span class="results-count" id="resultsCount">Cargando productos…</span>
-  </div>
+  <div class="results-bar"><span class="results-count" id="resultsCount">Cargando…</span></div>
   <div class="products-grid" id="productsGrid"></div>
 </div>
-
-<!-- PRODUCT MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
   <div class="modal" id="modal">
     <img class="modal-img" id="modalImg" src="" alt="" />
@@ -491,27 +168,19 @@
       <div class="modal-size-val" id="modalSize"></div>
       <div class="modal-cond-label">Condición</div>
       <div class="modal-cond" id="modalCond"></div>
-      <button class="modal-wa-btn" id="modalWaBtn">
+      <a class="modal-wa-btn" id="modalWaBtn" href="#" target="_blank" rel="noopener noreferrer">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Consultar por WhatsApp
-      </button>
+      </a>
     </div>
   </div>
 </div>
-
-<!-- CART PANEL -->
 <div class="cart-panel" id="cartPanel">
-  <div class="cart-header">
-    <h3>Mi selección</h3>
-    <button class="cart-close" onclick="closeCart()">✕</button>
-  </div>
+  <div class="cart-header"><h3>Mi selección</h3><button class="cart-close" onclick="closeCart()">✕</button></div>
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-footer" id="cartFooter"></div>
 </div>
-
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
-
 <footer>
   <div class="footer-logo">ECLIPSIA</div>
   <div class="footer-links">
@@ -520,27 +189,19 @@
   </div>
   <p>Moda circular · eclipsia.store · Buenos Aires</p>
 </footer>
-
 <script>
-  const WA_NUMBER = '5491123161045'; // ← REEMPLAZAR con número real
-
-  // ── DATA ──
+  const WA_NUMBER = '5491123161045';
   let products = JSON.parse(localStorage.getItem('eclipsia_products') || '[]');
   let cart = JSON.parse(localStorage.getItem('eclipsia_cart') || '[]');
   let currentFilter = 'Todas';
   let currentSort = 'newest';
-  let currentProduct = null;
-
-  // Demo products si está vacío
   if (products.length === 0) {
     products = [
-      { id: 1, name: 'Blazer Oversize Camel', category: 'Blazers', price: 18500, size: 'M', condition: 'Como nuevo', description: 'Blazer oversize en tono camel, perfecto para cualquier look. Tela de calidad premium.', image: 'assets/hero.png', badge: 'new', date: Date.now() },
-      { id: 2, name: 'Pantalón Wide Leg Crema', category: 'Pantalones', price: 12900, size: 'S', condition: 'Impecable', description: 'Pantalón de pierna ancha en color crema. Ideal para looks casuales o de oficina.', image: 'assets/hero.png', badge: '', date: Date.now()-1000 },
-      { id: 3, name: 'Top Crop Blanco', category: 'Tops', price: 7500, size: 'XS', condition: 'Nuevo con etiqueta', description: 'Top cropped en algodón blanco. Básico imprescindible.', image: 'assets/community.png', badge: 'new', date: Date.now()-2000 },
+      { id: 1, name: 'Blazer Oversize Camel', category: 'Blazers', price: 18500, size: 'M', condition: 'Como nuevo', description: 'Blazer oversize en tono camel, perfecto para cualquier look.', image: 'assets/hero.png', badge: 'new', date: Date.now() },
+      { id: 2, name: 'Pantalón Wide Leg Crema', category: 'Pantalones', price: 12900, size: 'S', condition: 'Impecable', description: 'Pantalón de pierna ancha en color crema.', image: 'assets/hero.png', badge: '', date: Date.now()-1000 },
+      { id: 3, name: 'Top Crop Blanco', category: 'Tops', price: 7500, size: 'XS', condition: 'Nuevo con etiqueta', description: 'Top cropped en algodón blanco.', image: 'assets/community.png', badge: 'new', date: Date.now()-2000 },
     ];
   }
-
-  // ── RENDER ──
   function getFiltered() {
     let list = currentFilter === 'Todas' ? [...products] : products.filter(p => p.category === currentFilter);
     if (currentSort === 'price-asc') list.sort((a,b) => a.price - b.price);
@@ -548,26 +209,18 @@
     else list.sort((a,b) => b.date - a.date);
     return list;
   }
-
   function renderProducts() {
     const grid = document.getElementById('productsGrid');
     const list = getFiltered();
     document.getElementById('resultsCount').textContent = `${list.length} prenda${list.length !== 1 ? 's' : ''}`;
-
-    if (list.length === 0) {
-      grid.innerHTML = `<div class="empty-state"><h3>Sin prendas en esta categoría</h3><p>Volvé pronto, la colección se renueva seguido.</p></div>`;
-      return;
-    }
-
+    if (list.length === 0) { grid.innerHTML = `<div class="empty-state"><h3>Sin prendas en esta categoría</h3><p>Volvé pronto.</p></div>`; return; }
     grid.innerHTML = list.map(p => `
       <div class="product-card" onclick="openModal(${p.id})">
         <div class="product-img-wrap">
           <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='assets/hero.png'" />
           ${p.badge === 'new' ? '<span class="product-badge new">Nuevo</span>' : ''}
           ${p.badge === 'sold' ? '<span class="product-badge sold">Vendido</span>' : ''}
-          <button class="product-quick" onclick="event.stopPropagation(); addToCart(${p.id})">
-            + Agregar al carrito
-          </button>
+          <button class="product-quick" onclick="event.stopPropagation(); addToCart(${p.id})">+ Agregar al carrito</button>
         </div>
         <div class="product-info">
           <div class="product-cat">${p.category}</div>
@@ -577,11 +230,8 @@
             <span class="product-size">${p.size}</span>
           </div>
         </div>
-      </div>
-    `).join('');
+      </div>`).join('');
   }
-
-  // ── FILTERS ──
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -590,84 +240,40 @@
       renderProducts();
     });
   });
-  document.getElementById('sortSelect').addEventListener('change', e => {
-    currentSort = e.target.value;
-    renderProducts();
-  });
-
-  // ── MODAL ──
+  document.getElementById('sortSelect').addEventListener('change', e => { currentSort = e.target.value; renderProducts(); });
   function openModal(id) {
     const p = products.find(x => x.id === id);
     if (!p) return;
-    currentProduct = p;
     document.getElementById('modalImg').src = p.image;
-    document.getElementById('modalImg').onerror = function(){ this.src='assets/hero.png'; };
     document.getElementById('modalCat').textContent = p.category;
     document.getElementById('modalName').textContent = p.name;
     document.getElementById('modalPrice').textContent = `$${p.price.toLocaleString('es-AR')}`;
     document.getElementById('modalDesc').textContent = p.description;
     document.getElementById('modalSize').textContent = p.size;
     document.getElementById('modalCond').textContent = p.condition;
-
     const msg = encodeURIComponent(`Hola! Me interesa esta prenda de Eclipsia:\n\n👗 *${p.name}*\nTalle: ${p.size}\nPrecio: $${p.price.toLocaleString('es-AR')}\n\n¿Está disponible?`);
     document.getElementById('modalWaBtn').href = `https://wa.me/${WA_NUMBER}?text=${msg}`;
-    document.getElementById('modalWaBtn').setAttribute('target', '_blank');
-    document.getElementById('modalWaBtn').onclick = null;
-
     document.getElementById('modalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function closeModalOnBg(e) {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
-  }
-
-  // ── CART ──
+  function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+  function closeModalOnBg(e) { if (e.target === document.getElementById('modalOverlay')) closeModal(); }
   function addToCart(id) {
     const p = products.find(x => x.id === id);
     if (!p) return;
-    const exists = cart.find(x => x.id === id);
-    if (!exists) cart.push({ id: p.id, name: p.name, price: p.price, size: p.size, category: p.category, image: p.image });
+    if (!cart.find(x => x.id === id)) cart.push({ id: p.id, name: p.name, price: p.price, size: p.size, category: p.category, image: p.image });
     localStorage.setItem('eclipsia_cart', JSON.stringify(cart));
     updateCartCount();
     showToast(`${p.name} agregado ✓`);
   }
-
-  function removeFromCart(id) {
-    cart = cart.filter(x => x.id !== id);
-    localStorage.setItem('eclipsia_cart', JSON.stringify(cart));
-    updateCartCount();
-    renderCart();
-  }
-
-  function updateCartCount() {
-    document.getElementById('cartCount').textContent = cart.length;
-  }
-
-  function openCart() {
-    renderCart();
-    document.getElementById('cartPanel').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeCart() {
-    document.getElementById('cartPanel').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
+  function removeFromCart(id) { cart = cart.filter(x => x.id !== id); localStorage.setItem('eclipsia_cart', JSON.stringify(cart)); updateCartCount(); renderCart(); }
+  function updateCartCount() { document.getElementById('cartCount').textContent = cart.length; }
+  function openCart() { renderCart(); document.getElementById('cartPanel').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeCart() { document.getElementById('cartPanel').classList.remove('open'); document.body.style.overflow = ''; }
   function renderCart() {
     const itemsEl = document.getElementById('cartItems');
     const footerEl = document.getElementById('cartFooter');
-
-    if (cart.length === 0) {
-      itemsEl.innerHTML = `<div class="cart-empty">🛍<p>Tu carrito está vacío</p></div>`;
-      footerEl.innerHTML = '';
-      return;
-    }
-
+    if (cart.length === 0) { itemsEl.innerHTML = `<div class="cart-empty">🛍<p>Tu carrito está vacío</p></div>`; footerEl.innerHTML = ''; return; }
     itemsEl.innerHTML = cart.map(p => `
       <div class="cart-item">
         <img class="cart-item-img" src="${p.image}" alt="${p.name}" onerror="this.src='assets/hero.png'" />
@@ -677,44 +283,21 @@
           <div class="cart-item-price">$${p.price.toLocaleString('es-AR')}</div>
           <button class="cart-item-remove" onclick="removeFromCart(${p.id})">Quitar</button>
         </div>
-      </div>
-    `).join('');
-
+      </div>`).join('');
     const total = cart.reduce((s,p) => s + p.price, 0);
     const itemsList = cart.map(p => `- ${p.name} (Talle ${p.size}) $${p.price.toLocaleString('es-AR')}`).join('\n');
     const msg = encodeURIComponent(`Hola! Quiero consultar por estas prendas de Eclipsia:\n\n${itemsList}\n\nTotal: $${total.toLocaleString('es-AR')}\n\n¿Están disponibles?`);
-
     footerEl.innerHTML = `
-      <div class="cart-total">
-        <span>Total</span>
-        <strong>$${total.toLocaleString('es-AR')}</strong>
-      </div>
+      <div class="cart-total"><span>Total</span><strong>$${total.toLocaleString('es-AR')}</strong></div>
       <a href="https://wa.me/${WA_NUMBER}?text=${msg}" target="_blank" class="cart-wa-btn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Consultar todo por WhatsApp
-      </a>
-    `;
+      </a>`;
   }
-
-  // ── TOAST ──
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2500);
-  }
-
-  // ── INIT ──
+  function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); }
   renderProducts();
   updateCartCount();
-
-  // Listen for product updates from admin
-  window.addEventListener('storage', e => {
-    if (e.key === 'eclipsia_products') {
-      products = JSON.parse(e.newValue || '[]');
-      renderProducts();
-    }
-  });
+  window.addEventListener('storage', e => { if (e.key === 'eclipsia_products') { products = JSON.parse(e.newValue || '[]'); renderProducts(); } });
 </script>
 </body>
 </html>
